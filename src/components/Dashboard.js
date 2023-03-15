@@ -51,7 +51,7 @@ export default function Dashboard() {
                 type="text"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
                 name="jobTitle"
-                placeholder="Job Title"
+                placeholder="Exercise Name"
                 id="jobTitle"
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}
@@ -66,7 +66,7 @@ export default function Dashboard() {
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
-                placeholder="Industry (Optional)"
+                placeholder="Clientele/Audience (Optional)"
                 type="text"
                 name="industry"
                 id="industry"
@@ -82,7 +82,7 @@ export default function Dashboard() {
                 onChange={(e) => setKeyWords(e.target.value)}
                 name="keyWords"
                 id="keyWords"
-                placeholder="Keywords for AI (Optional)"
+                placeholder="SEO Keywords (Optional)"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
               />
             </div>
@@ -150,7 +150,7 @@ export default function Dashboard() {
               value={jobDescription}
               disabled={jobDescription === ""}
               id="output"
-              placeholder="AI Generated Job Description"
+              placeholder="AI Generated Exercise Description"
               className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
             />
             <button

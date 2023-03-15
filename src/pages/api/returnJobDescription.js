@@ -14,6 +14,7 @@ const generateDescription = async ({
             "Content-Type": "application/json",
             Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           },
+          //update the template literal below to be for your exercise description prompt
           body: JSON.stringify({
             prompt: `Write a job description for a  ${jobTitle} role 
             ${industry ? `in the ${industry} industry` : ""} that is around ${
