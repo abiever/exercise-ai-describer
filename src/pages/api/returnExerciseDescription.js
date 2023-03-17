@@ -16,13 +16,13 @@ const generateDescription = async ({
           },
           //update the template literal below to be for your exercise description prompt
           body: JSON.stringify({
-            prompt: `Write a detailed description for the fitness exercise called ${exerciseName} 
-            ${clientele ? `catering towards an audience of ${clientele} clientele` : ""} that is around ${
+            prompt: `Write a detailed description explaining how to perform the fitness exercise called ${exerciseName} 
+            ${clientele ? `catering towards an audience of ${clientele}` : ""} that is around ${
               numWords || 200
             } words in a ${tone || "neutral"} tone. ${
               keyWords ? `Incorporate the following keywords: ${keyWords}.` : ""
-            }. The description should be written in a way that is SEO friendly, highlighting its unique uses and benefits.`,
-            max_tokens: 100,
+            }. The description should be written in a way that is SEO friendly while highlighting the exercise's key points and things to avoid for safety reasons.`,
+            max_tokens: 200,
             temperature: 0.5,
           }),
         }
@@ -38,7 +38,7 @@ const generateDescription = async ({
   export default async function handler(req, res) {
     const { exerciseName, clientele, keyWords, tone, numWords } = req.body;
   
-    const jobDescription = await generateDescription({
+    const exerciseDescription = await generateDescription({
       exerciseName,
       clientele,
       keyWords,
@@ -47,6 +47,6 @@ const generateDescription = async ({
     });
   
     res.status(200).json({
-      jobDescription,
+      exerciseDescription,
     });
   }

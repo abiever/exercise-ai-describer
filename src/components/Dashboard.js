@@ -49,7 +49,7 @@ export default function Dashboard() {
               </label>
               <input
                 type="text"
-                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 name="ExerciseName"
                 placeholder="Exercise Name"
                 id="ExerciseName"
@@ -65,7 +65,7 @@ export default function Dashboard() {
               <input
                 value={clientele}
                 onChange={(e) => setClientele(e.target.value)}
-                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 placeholder="Clientele/Audience (Optional)"
                 type="text"
                 name="clientele"
@@ -83,7 +83,7 @@ export default function Dashboard() {
                 name="keyWords"
                 id="keyWords"
                 placeholder="SEO Keywords for AI (Optional)"
-                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
               />
             </div>
             <div className="flex flex-col">
@@ -94,7 +94,7 @@ export default function Dashboard() {
               <select
                 value={tone}
                 onChange={(e) => setTone(e.target.value)}
-                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 name="tone"
                 id="tone"
               >
@@ -113,7 +113,7 @@ export default function Dashboard() {
                 value={numWords}
                 onChange={(e) => setNumWords(e.target.value)}
                 type="number"
-                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 placeholder="Number Of Words - Default 200 (Optional)"
                 name="words"
                 id="words"
@@ -121,7 +121,7 @@ export default function Dashboard() {
             </div>
 
             <button
-              className={`bg-blue-600 w-full hover:bg-blue-700 text-white font-bold mt-6 py-2 px-4 rounded
+              className={`bg-amber-500 w-full hover:bg-amber-600 text-white font-bold mt-6 py-2 px-4 rounded
                 ${
                   isGenerating || exerciseName === ""
                     ? "cursor-not-allowed opacity-50"
@@ -151,11 +151,11 @@ export default function Dashboard() {
               disabled={exerciseDescription === ""}
               id="output"
               placeholder="AI Generated Exercise Description"
-              className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+              className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
             />
             <button
               onClick={handleCopy}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded"
               type="submit"
               disabled={exerciseDescription === ""}
             >
