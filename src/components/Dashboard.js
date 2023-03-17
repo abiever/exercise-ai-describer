@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 export default function Dashboard() {
-  const [jobDescription, setJobDescription] = useState("");
+  const [exerciseDescription, setExerciseDescription] = useState("");
 
-  const [jobTitle, setJobTitle] = useState("");
-  const [industry, setIndustry] = useState("");
+  const [exerciseName, setExcerciseName] = useState("");
+  const [clientele, setClientele] = useState("");
   const [keyWords, setKeyWords] = useState("");
   const [tone, setTone] = useState("");
   const [numWords, setNumWords] = useState("");
@@ -13,21 +13,21 @@ export default function Dashboard() {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(jobDescription);
+    navigator.clipboard.writeText(exerciseDescription);
     setIsCopied(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsGenerating(true);
-    const res = await fetch("/api/returnJobDescription", {
+    const res = await fetch("/api/returnExerciseDescription", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        jobTitle,
-        industry,
+        exerciseName,
+        clientele,
         keyWords,
         tone,
         numWords,
@@ -35,7 +35,7 @@ export default function Dashboard() {
     });
     setIsGenerating(false);
     const data = await res.json();
-    setJobDescription(data.jobDescription.trim());
+    setExerciseDescription(data.exerciseDescription.trim());
   };
 
   return (
@@ -44,37 +44,37 @@ export default function Dashboard() {
         <div className="">
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="flex flex-col">
-              <label className="sr-only" htmlFor="jobTitle">
-                Job Title
+              <label className="sr-only" htmlFor="ExerciseName">
+                Exercise Name
               </label>
               <input
                 type="text"
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
-                name="jobTitle"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
+                name="ExerciseName"
                 placeholder="Exercise Name"
-                id="jobTitle"
-                value={jobTitle}
-                onChange={(e) => setJobTitle(e.target.value)}
+                id="ExerciseName"
+                value={exerciseName}
+                onChange={(e) => setExcerciseName(e.target.value)}
                 required
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="industry" className="sr-only">
-                Industry
+              <label htmlFor="clientele" className="sr-only">
+                Clientele
               </label>
               <input
-                value={industry}
-                onChange={(e) => setIndustry(e.target.value)}
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+                value={clientele}
+                onChange={(e) => setClientele(e.target.value)}
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 placeholder="Clientele/Audience (Optional)"
                 type="text"
-                name="industry"
-                id="industry"
+                name="clientele"
+                id="clientele"
               />
             </div>
             <div className="flex flex-col">
               <label htmlFor="keywords" className="sr-only">
-                Keywords for AI (Optional)
+                SEO Keywords for AI (Optional)
               </label>
               <textarea
                 rows={7}
@@ -82,8 +82,8 @@ export default function Dashboard() {
                 onChange={(e) => setKeyWords(e.target.value)}
                 name="keyWords"
                 id="keyWords"
-                placeholder="SEO Keywords (Optional)"
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+                placeholder="SEO Keywords for AI (Optional)"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
               />
             </div>
             <div className="flex flex-col">
@@ -94,7 +94,7 @@ export default function Dashboard() {
               <select
                 value={tone}
                 onChange={(e) => setTone(e.target.value)}
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 name="tone"
                 id="tone"
               >
@@ -102,18 +102,18 @@ export default function Dashboard() {
                 <option value="casual">Casual</option>
                 <option value="friendly">Friendly</option>
                 <option value="professional">Professional</option>
-                <option value="formal">Formal</option>
+                <option value="meathead">Meathead</option>
               </select>
             </div>
             <div className="flex flex-col">
               <label htmlFor="words" className="sr-only">
-                Words (Optional)
+                Number of Words (Optional)
               </label>
               <input
                 value={numWords}
                 onChange={(e) => setNumWords(e.target.value)}
                 type="number"
-                className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+                className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
                 placeholder="Number Of Words - Default 200 (Optional)"
                 name="words"
                 id="words"
@@ -123,14 +123,14 @@ export default function Dashboard() {
             <button
               className={`bg-blue-600 w-full hover:bg-blue-700 text-white font-bold mt-6 py-2 px-4 rounded
                 ${
-                  isGenerating || jobTitle === ""
+                  isGenerating || exerciseName === ""
                     ? "cursor-not-allowed opacity-50"
                     : ""
                 }`}
               type="submit"
-              disabled={isGenerating || jobTitle === ""}
+              disabled={isGenerating || exerciseName === ""}
             >
-              {isGenerating ? "Generating..." : "Generate Job Description"}
+              {isGenerating ? "Generating..." : "Generate Exercise Description"}
             </button>
           </form>
         </div>
@@ -141,23 +141,23 @@ export default function Dashboard() {
             </label>
             <textarea
               rows={
-                jobDescription === ""
+                exerciseDescription === ""
                   ? 7
-                  : jobDescription.split("\\n").length + 12
+                  : exerciseDescription.split("\\n").length + 12
               }
               name="output"
-              onChange={(e) => setJobDescription(e.target.value)}
-              value={jobDescription}
-              disabled={jobDescription === ""}
+              onChange={(e) => setExerciseDescription(e.target.value)}
+              value={exerciseDescription}
+              disabled={exerciseDescription === ""}
               id="output"
               placeholder="AI Generated Exercise Description"
-              className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
+              className="block w-full rounded-md bg-stone-900 border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-400 my-2 text-white"
             />
             <button
               onClick={handleCopy}
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               type="submit"
-              disabled={jobDescription === ""}
+              disabled={exerciseDescription === ""}
             >
               {isCopied ? "Copied" : "Copy to Clipboard"}
             </button>
