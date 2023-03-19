@@ -1,40 +1,21 @@
+# AI Exercise How-To Creator
+
+Utilizing the power of OpenAI's ChatGPT model, this "Exercise How-To Creator" takes information such as the desired exercise's name and specific keywords to produce relevant written content that can be used for description boxes on social media sites like YouTube. 
+
+## About
+
+As a former professional of the fitness industry, one of the tasks that was often necessary while creating educational video content online was completing the description boxes with content that was both pertinent to the exercise being demonstrated, yet also SEO friendly at the same time. This was a generally time-consuming and tedious endeavor that no one particular enjoyed, but it helped bring in clients, so it needed to be done. 
+
+If this tool had existed at that time, many hours could have been saved. Now that it does, up-and-coming trainers creating their own video libraries can easily fill out their descriptions in a fraction of the time. 
+
 Inspired from this tutorial: https://www.freecodecamp.org/news/build-a-job-description-generator-with-nextjs-and-chatgpt/
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Challenges Overcome & Lessons Learned
 
-## Getting Started
+• Understanding and manipulating the flow of data through Next.js's API Routes <br>
+• The purpose of .env files and how/why they can be a security risk when not stored properly for production
+• Configuring Tailwind CSS for specific environments and custom fonts
 
-First, run the development server:
+## Current Known Issues
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+• At times, the description produced by the AI stops halfway through a sentence
